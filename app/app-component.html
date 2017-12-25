@@ -1,0 +1,32 @@
+<div id="app-component-wrapper">
+    <h1>The best weather on earth</h1>
+    <div class="list-wrapper" ng-if="dataReceived">
+        <div id="ideal" class="group">
+            <h2>Ideal locations (21°C) with 50% humidity</h2>
+            <div class="locations">
+                <div  class="location" ng-repeat="location in ideal">{{location.name}}</div>
+            </div>
+        </div>
+        <div id="other" class="group">
+            <h2>Other (almost) ideal locations</h2>
+            <div class="table">
+                <div class="table-header">
+                    <span class="cell name">Name</span>
+                    <span class="cell temp">Temperature</span>
+                    <span class="cell humidity">Humidity</span>
+                </div>
+                <div class="table-body">
+                    <div class="row" ng-repeat="location in others | orderBy: ['-main.temp','-main.humidity']">
+                        <span class="cell name">{{location.name}} </span>
+                        <span class="cell temp">{{location.main.temp}}°C</span>
+                        <span class="cell humidity">{{location.main.humidity}}%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading" ng-if="!dataReceived">
+        <md-progress-circular md-mode="indeterminate" md-diameter="20px" class="md-accent md-hue-1"></md-progress-circular>
+        Loading Data...</div>
+</div>

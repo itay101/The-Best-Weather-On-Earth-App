@@ -1,0 +1,22 @@
+{
+  "name": "angular-seed",
+  "private": true,
+  "version": "0.0.0",
+  "description": "A starter project for AngularJS",
+  "license": "MIT",
+  "devDependencies": {
+    "body-parser": "^1.18.2",
+    "bower": "^1.7.7",
+    "express": "^4.16.2",
+    "express-http-proxy": "^1.1.0",
+    "http-server": "^0.10.0"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "update-deps": "npm update",
+    "postupdate-deps": "bower update",
+    "prestart": "npm install",
+    "start": "http-server --cors='*' -a localhost -p 8000 -c-1 ./app",
+    "preupdate-webdriver": "npm install"
+  }
+}
